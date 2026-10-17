@@ -112,11 +112,12 @@ export function BarcodeBox({ onFound, onNew }: {
         fps: 30, 
         qrbox: { width: 250, height: 250 },
         rememberLastUsedCamera: true,
-        videoConstraints: {
+       videoConstraints: {
           facingMode: "environment",
           width: { min: 640, ideal: 1280, max: 1920 },
           height: { min: 480, ideal: 720, max: 1080 },
-          advanced: [{ focusMode: "continuous" }]
+          // Yahan 'as any' lagane se TypeScript error nahi dega aur Vercel build pass ho jayega
+          advanced: [{ focusMode: "continuous" } as any] 
         }
       },
       false
